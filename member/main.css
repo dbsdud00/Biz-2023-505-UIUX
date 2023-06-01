@@ -1,0 +1,95 @@
+/*
+header tag 의 background-color 와 color 속성을 변경했더니 
+h1 tag, p tag 로 구성된 Text 들의 속성이 같이 변경되었다.
+
+h1 tag 와 p tag 는 header tag 가 감싸고 있는 형태이다.
+이때 header tag를 부모 tag 라고 하고, h1과 p 를 header tag의 chile tag 라고 한다.
+
+부모 tag의 속성을 설정하면 child tag 의 속성도 같이 변화된다.(단, 일부는 그렇지 않다.)
+*/
+header {
+  background-color: green;
+  color: white;
+  text-align: center;
+  /*
+  화면에 여백, 글자 크기, box 의 크기 등을 표현할 때
+  px, pt, % 등의 단위를 사용한다.
+  이 단위들은 보통 고정 값으로 화면의 크기 등을 고려하지 않는 경우가 많다.
+  rem(em)은 주변에 글자 크기에 따라 비례적으로 단위를 적용한다.
+  기본값을 16px 대비 배율로 표현한다.
+  1rem : 16px
+  1.2rem : (16 * 1.2)px 로 보면 된다.
+  */
+  padding: 1rem;
+}
+
+/*
+nav tag의 바탕색과 글자색을 변경했다
+이때 nav tag 가 감싸고있는 child tag 에도 당연히 
+전파가 될 것으로 생각했다.
+그런데, nav tag의 child 인 a tag 는 글자색이 변경되지 않았다.
+
+이처럼 일부 부모의 속성을 상속받지 않는 tag 도 있다.
+*/
+nav {
+  background-color: blue;
+  color: white;
+}
+/*
+a tag는 특성상 부모의 color 속성을 상속받지 않는다.
+따라서 부모 tag의 color 와 일치 시키기 위하여 a tag 의 color 속성을 부모 tag color 와 같게 해 주어야 한다.
+
+그런데, 부모의 color 를 변경할 떄마다 a tag 의 color 도 변경해야하는 
+번거로움이 있다.
+
+이럴때는 color 를 임의의 값으로 하지 않고 inherit 키워드를 사용한다.
+
+부모 (nav) 의 color 속성을 변경하면 a tag의 color 속성도 같이 변경된다.
+*/
+a {
+  color: inherit;
+  text-decoration: none;
+  /*
+  a tag 는 기본 속성이 inline 이다.
+  보통 inline tag 는 margin과 padding, sidth, height 등의 
+  크기를 조절하는 속성이 잘 안된다.
+  그래서 a tag 에 margin, padding등을 적용할 때는 성질을 
+  inline-block 으로 변경해 주어야 한다.
+  inline-block 성질은 inline 이면서 box tag의 속성도 
+  일부 같이 포함하는 성질을 갖게 된다.
+  */
+  padding: 16px;
+  border: 1px solid red;
+  display: inline-block;
+}
+section {
+  border: 1px solid black;
+}
+article {
+  border: 1px solid red;
+  margin: 10px;
+}
+
+/*
+css 에서 색상 값을 표현하는 방법
+1. 색상 문자열을 사용하는 방법
+2. rgb() 빛의 3원색을 0~255 까지 볌위로 각각 지정하여 색을 표현하는 방법
+3. rgba() : 빛의 3원색과 alpa 값(투명도, opacity)를 각각 지정하여 색과 농도를 표현하는 방법
+4. 16진수 문자열로 표현하는 방법
+    RGB 색상을 16진수 문자열로 표현한다.
+    각각 RGB는 00~FF 까지 표현한다.
+    #334455 는 #345 와 같다. 이렇게 3글자로 표현 가능 한 색은 회색계열이다.
+*/
+footer {
+  /*색상 문자 값으로 표현하기*/
+  color: white;
+  /*RGBA() 함수로 표현하기*/
+  background-color: rgb(0, 0, 0, 0.3);
+  /*16진수 문자열로 표현하기*/
+  background-color: #4287f5;
+  background-color: #345;
+  background-color: #334455;
+
+  text-align: center;
+  padding: 10px;
+}
