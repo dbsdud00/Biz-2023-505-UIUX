@@ -1,0 +1,79 @@
+/* css 초기화 */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  background-color: rgb(22, 160, 133);
+}
+header h1 {
+  font-weight: bold;
+  color: white;
+  font-size: 25px;
+}
+header p {
+  font-size: 12px;
+  font-weight: 600;
+}
+nav {
+  width: 100%;
+  padding: 5px;
+  background-color: #333;
+  color: white;
+  display: flex;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 5px 5px 9px 5px;
+  padding: 12px 16px 8px 16px;
+  border-bottom: 2px solid transparent;
+  transition: 0.5s;
+}
+
+nav a:first-of-type {
+  margin-left: 20px;
+}
+nav a:last-of-type {
+  margin-right: 20px;
+}
+nav a:nth-of-type(6),
+nav a:nth-of-type(4) {
+  margin-left: auto;
+}
+nav a:hover {
+  border-bottom: 2px solid white;
+}
+section {
+  display: flex;
+}
+section article {
+  flex: 1;
+  margin: 10px;
+  text-align: center;
+}
+/* class 가 dash-title 인 p tag */
+p.dash-title {
+  padding: 5px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  transition: 0.5s;
+}
+p.dash-title:hover {
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+footer {
+  bottom: 0;
+  padding: 0.7rem;
+  text-align: center;
+  font-size: 10px;
+  color: #333;
+}
