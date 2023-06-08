@@ -73,6 +73,7 @@ section.dept {
   flex: 1;
   margin: 3px;
   display: block;
+  border: 1px solid #000;
 }
 /*
   block tag 의 overflow 속성
