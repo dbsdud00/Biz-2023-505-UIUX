@@ -2,8 +2,6 @@ const images = [
   "./images/image1.jpg",
   "./images/image2.jpg",
   "./images/image3.png",
-  "./images/image4.jpg",
-  "./images/image5.jpg",
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -39,19 +37,25 @@ document.addEventListener("DOMContentLoaded", () => {
   // for (let [index, img] of Object.entries(image_slides)) {
   //   img.src = images[index];
   // }
-  image_slides[0].src = images[0];
-  image_slides[1].src = images[1];
-  image_slides[2].src = images[2];
+  // image_slides[0].src = images[0];
+  // image_slides[1].src = images[1];
+  // image_slides[2].src = images[2];
 
-  const prev = () => {
-    alert("이전");
-  };
-  const next = () => {
-    alert("다음");
-  };
-  const currentImage = (pos) => {
-    alert(`${pos} 번째 이미지`);
-  };
+  const showImage = () => {
+    for (let img of image_slides) {
+      img.style.display = "none";
+    }
+    image_slides[0].src = images[slideIndex];
+    image_slides[0].style.display = "block";
+
+    for (let badge of badges) {
+      badge.classList.remove("select");
+    }
+    badges[slideIndex].classList.add("select");
+  }; // showImage ... end
+
+  let slideIndex = 0;
+
   document
     .querySelector("div.controller_box")
     ?.addEventListener("click", (e) => {
@@ -59,11 +63,26 @@ document.addEventListener("DOMContentLoaded", () => {
       const className = target.classList;
       // alert(className);
       if (className.contains("left")) {
-        alert("왼쪽버튼 클릭됨");
+        // alert("왼쪽버튼 클릭됨");
+        // slideIndex--;
+        if (--slideIndex < 0) {
+          slideIndex = images.length - 1;
+        }
       } else if (className.value === "button right") {
-        alert("오른쪽 버튼 클릭");
+        // alert("오른쪽 버튼 클릭");
+        // slideIndex++;
+        if (++slideIndex > images.length - 1) {
+          slideIndex = 0;
+        }
       } else if (className.value === "badge") {
-        alert("배지 클릭됨");
-      }
-    });
-});
+        // alert("배지 클릭됨");
+        // span tag data-id 값 가져오기
+        const id = Number(target.dataset.id);
+        slideIndex = id - 1;
+      } // if end
+      // click event 가 작동될 때 이미지 새로 갱신하기
+      showImage();
+    }); // controll box click
+  // 처음 화면이 시작될 때 이미지 보이기
+  showImage();
+}); // DOM.. end

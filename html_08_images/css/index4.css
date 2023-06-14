@@ -17,15 +17,17 @@ body {
 
 div.main_box {
   width: 800px;
+  height: 500px;
   margin: 10rem auto;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   position: relative;
 }
 img.image_slides {
   width: 100%;
+  height: 100%;
 }
 div.controller_box {
-  border: 1px solid #ff0000;
+  /* border: 1px solid #ff0000; */
   width: 100%;
   /* controller_box 가 main_box 의 하단에 정렬*/
   position: absolute;
@@ -36,12 +38,40 @@ div.controller_box {
   display: flex;
   padding: 30px 20px;
 }
+div.button {
+  font-size: 20px;
+  color: white;
+  text-shadow: 2px 2px 2px #000;
+  /*
+  text-stroke 는 글자 border 의 색상과 두께르 ㄹ지정하는 속성이다.
+  아직은 실험적인 속성이어서 Brower 에서 완전하게 지원하지 않는다.
+  그래서 -webkit 이라는 prifix 를 붙여준다.
+  현재는 chrom 에서만 정상 작동한다.
+  */
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 1px;
+}
+
+/* button badge tag 에 공통 속성 부여하기*/
+div.button,
+span.badge {
+  cursor: pointer;
+}
+div.button:hover {
+  text-shadow: 3px 3px 3px #000;
+  -webkit-text-stroke-color: white;
+  color: #000;
+}
+
 div.button.right {
   margin-left: auto;
 }
+
 div.badge_box {
   margin-left: auto;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /*
 span tag 는 태생이 inline(가장 inline 스러운 특징을 갖는다)
@@ -51,10 +81,22 @@ inline 특성은 width, height, padding 완전 무시
 inline block 성질을 갖게 된다.
 */
 span.badge {
-  background-color: #000;
+  background-color: #2e2e2e;
   width: 15px;
   height: 15px;
   border-radius: 50%;
   border: 2px solid white;
   margin: 0 1.5px;
+}
+span.badge:hover {
+  background-color: white;
+  border: 3px solid #000;
+}
+span.badge.select {
+  background-color: yellowgreen;
+  width: 20px;
+  height: 20px;
+}
+span.badge.select:hover {
+  border: 3px solid #ffffff;
 }
