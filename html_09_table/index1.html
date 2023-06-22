@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: rgba(218, 218, 218, 0.151);
+      }
+      table {
+        width: 80%;
+        margin: 10px auto;
+      }
+      table.table1 {
+        /* border: 1px solid #8d0c0c; */
+        /* table 의 cell 과 cell 사이의 간격 설정 */
+        border-collapse: separate; /* default (분리되어 있음) */
+        border-collapse: collapse;
+        text-align: center;
+        background-color: #6fb3b8;
+      }
+
+      table.table1 tr {
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #aaa;
+      }
+      table.table1 th,
+      table.table1 td {
+        border-right: 1px solid #aaa;
+        border-left: 1px solid #eee;
+        text-align: left;
+        margin-left: 5px;
+      }
+      table.table2 {
+        /* cell 과 cell 사이의 간격을 유지호가 */
+        border-collapse: separate;
+        /* table 의 가장 바깥의 테두리를 점선으로 */
+        border-style: dashed;
+        /* border-collapse 가 seperate 일 때 cell 간격 조정 */
+        border-spacing: 5px;
+      }
+      table.table2 td,
+      table.table2 th {
+        border: 1px dashed green;
+      }
+
+      table.table3 {
+        border-collapse: collapse;
+      }
+      /* tr tag 중에 짝수번째 요소 */
+      table.table3 tr:nth-child(even) {
+        background-color: rgb(255, 117, 117);
+      }
+      /* tr tag 중에 홀수번째 요소 */
+      table.table3 tr:nth-child(odd) {
+        background-color: rgb(195, 255, 143);
+      }
+    </style>
+  </head>
+  <body>
+    <table class="table1">
+      <tr>
+        <th>이름</th>
+        <th>주소</th>
+        <th>전화번호</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+      </tr>
+    </table>
+    <table class="table2">
+      <tr>
+        <th>이름</th>
+        <th>주소</th>
+        <th>전화번호</th>
+      </tr>
+      <tr>
+        <td colspan="2">1</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>5</td>
+        <td rowspan="2">6</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>8</td>
+      </tr>
+    </table>
+
+    <table class="table3">
+      <tr>
+        <th>이름</th>
+        <th>주소</th>
+        <th>전화번호</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+      </tr>
+    </table>
+  </body>
+</html>
